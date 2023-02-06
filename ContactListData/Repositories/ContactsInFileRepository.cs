@@ -20,9 +20,9 @@ namespace ContactListData.Repositories
 
         public IQueryable<Contact> GetContacts()
         {
-            var json = File.ReadAllText(_filePath);
-            var contacts = JsonConvert.DeserializeObject<List<Contact>>(json);
-            return contacts.AsQueryable();
+            var json = File.ReadAllText(_filePath); //reads the entire contents of the file located at the path stored in the _filePath variable as a string
+            var contacts = JsonConvert.DeserializeObject<List<Contact>>(json); //deserializes the JSON string stored in json into a list of Contact objects.
+            return contacts.AsQueryable(); //method is called on the list of Contact objects to convert it into a queryable object, which can be used to perform LINQ operations on the data.
         }
 
         public void AddContact(Contact c)

@@ -40,10 +40,11 @@ namespace ContactApplication
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            //Use Db
+            //services.AddScoped<IContactsRepository, ContactsRepository>();
 
-            services.AddScoped<IContactsRepository, ContactsRepository>();
-
-            //services.AddScoped<IContactsRepository>(s => new ContactsInFileRepository("contacts.json"));
+            //Use Json
+            services.AddScoped<IContactsRepository>(s => new ContactsInFileRepository("contacts.json"));
 
 
         }

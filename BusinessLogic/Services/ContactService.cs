@@ -19,10 +19,6 @@ namespace BusinessLogic.Services
 
         public void AddContact(Contact c)
         {
-            if (_repository.GetContacts().Any(i => i.MobileNo == c.MobileNo))
-                throw new Exception("Contact with the same Phone Number already exists");
-            else
-            {
                 _repository.AddContact(new Contact()
                 {
                     Name = c.Name,
@@ -30,7 +26,7 @@ namespace BusinessLogic.Services
                     MobileNo = c.MobileNo,
                     Picture = c.Picture,
                 });
-            }
+           
         }
 
         public IQueryable<Contact> GetContacts()
